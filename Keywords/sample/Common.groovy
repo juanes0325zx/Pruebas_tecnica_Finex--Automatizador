@@ -25,7 +25,21 @@ public class Common {
 	}
 
 	@Keyword
+	def  static void prueba_tecnica_createNewUser(
+			int expectedStatus) {
+		def response = WS.sendRequestAndVerify(findTestObject('Object Repository/prueba_tecnica/Create_user'
+				))
+	
+		assert response.getStatusCode() == expectedStatus
+	}
+
+
+
+
+	@Keyword
 	def static void findUserById(int id, int age, String username, String password, String gender, int expectedStatus) {
 		WS.sendRequestAndVerify(findTestObject('Object Repository/GET user by id', [('id') : id]))
 	}
 }
+
+
